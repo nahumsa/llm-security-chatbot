@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 requests = "*"
+markdown = "*"
+pydantic = "*"
 
 [dev-packages]
 

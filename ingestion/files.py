@@ -1,4 +1,7 @@
+from typing import Optional
 import requests
+
+from ingestion.parser import FileParser, Parser, Section
 
 root_path = "https://raw.githubusercontent.com/OWASP/www-project-top-10-for-large-language-model-applications/main/1_1_vulns/"
 
@@ -17,14 +20,19 @@ rel_file_paths = [
 
 
 class FilesExtractor:
-    def __init__(self) -> None:
-        pass
+    def __init__(self, parser: Optional[Parser] = None) -> None:
+        if not parser:
+            self.parser = FileParser()
 
-    def extract(self) -> list[str]:
-        extracted_texts: list[str] = []
+        else:
+            self.parser = parser
+
+    def extract(self) -> list[Section]:
+        extracted_texts: list[Section] = []
 
         for file_path in rel_file_paths:
             req = requests.get(url=root_path + file_path)
-            extracted_texts.append(req.text)
+            parsed_text = self.parser.parse(req.text)
+            extracted_texts.append(parsed_text)
 
         return extracted_texts

@@ -1,4 +1,5 @@
 from ingestion.files import FilesExtractor
 
 
-print(FilesExtractor().extract())
+if __name__ == "__main__":
+    FilesExtractor().extract()
