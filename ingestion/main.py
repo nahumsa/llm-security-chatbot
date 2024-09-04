@@ -2,4 +2,6 @@ from ingestion.files import FilesExtractor
 
 
 if __name__ == "__main__":
-    FilesExtractor().extract()
+    for file in FilesExtractor().extract():
+        print(file.name)
+        print(file.sections)
