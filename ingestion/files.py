@@ -3,7 +3,13 @@ import requests
 
 from ingestion.parser import FileParser, Parser, File
 
-root_path = "https://raw.githubusercontent.com/OWASP/www-project-top-10-for-large-language-model-applications/main/1_1_vulns/"
+root_path = (
+    "https://raw.githubusercontent.com"
+    + "/OWASP"
+    + "/www-project-top-10-for-large-language-model-applications"
+    + "/main"
+    + "/1_1_vulns"
+)
 
 rel_file_paths = [
     "LLM01_PromptInjection.md",
@@ -31,7 +37,7 @@ class FilesExtractor:
         extracted_texts: list[File] = []
 
         for file_path in rel_file_paths:
-            req = requests.get(url=root_path + file_path)
+            req = requests.get(url=root_path + "/" + file_path)
             parsed_text = self.parser.parse(req.text)
             extracted_texts.append(parsed_text)
 
