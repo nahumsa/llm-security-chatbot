@@ -1,0 +1,101 @@
+title, questions
+LLM01: Prompt Injection,What is Prompt Injection Vulnerability?
+LLM01: Prompt Injection,How can an attacker manipulate a large language model (LLM) through crafted inputs?
+LLM01: Prompt Injection,What are the two types of prompt injections described in the text?
+LLM01: Prompt Injection,What is 'jailbreaking' in the context of Direct Prompt Injections?
+LLM01: Prompt Injection,How do indirect prompt injections differ from direct prompt injections?
+LLM01: Prompt Injection,What are some external sources from which an LLM might accept manipulated input in an indirect prompt injection?
+LLM01: Prompt Injection,What are the potential consequences of a successful prompt injection attack?
+LLM01: Prompt Injection,How can an LLM be manipulated to mimic a harmful persona or interact with unauthorized plugins?
+LLM01: Prompt Injection,Why might a compromised LLM bypass standard safeguards during an advanced attack?
+LLM02: Insecure Output Handling,What risks arise when an LLM acts as an agent for an attacker in a prompt injection scenario?
+LLM02: Insecure Output Handling,What is Insecure Output Handling in the context of large language models (LLMs)?
+LLM02: Insecure Output Handling,Why is LLM-generated content considered similar to providing users with indirect access to additional functionality?
+LLM02: Insecure Output Handling,How does Insecure Output Handling differ from Overreliance on LLMs?
+LLM02: Insecure Output Handling,What types of attacks can occur as a result of an Insecure Output Handling vulnerability?
+LLM02: Insecure Output Handling,How can XSS and CSRF attacks be linked to insecure handling of LLM-generated outputs in web browsers?
+LLM02: Insecure Output Handling,What backend vulnerabilities could result from insecure output handling in LLM systems?
+LLM02: Insecure Output Handling,How can granting an LLM privileges beyond what is intended lead to privilege escalation?
+LLM02: Insecure Output Handling,What role does indirect prompt injection play in exploiting Insecure Output Handling vulnerabilities?
+LLM02: Insecure Output Handling,Why are 3rd party plugins mentioned as a potential risk in the context of Insecure Output Handling?
+LLM02: Insecure Output Handling,How could inadequate validation of inputs by plugins lead to remote code execution or other attacks?
+LLM03: Training Data Poisoning,"What is the starting point of any machine learning approach, especially in the context of large language models (LLMs)?"
+LLM03: Training Data Poisoning,"Why is it important for training data to span a broad range of domains, genres, and languages?"
+LLM03: Training Data Poisoning,How do large language models generate outputs from training data?
+LLM03: Training Data Poisoning,"What is training data poisoning, and how does it affect a machine learning model?"
+LLM03: Training Data Poisoning,What are some possible risks and consequences of training data poisoning?
+LLM03: Training Data Poisoning,What is the difference between pre-training data and fine-tuning in the context of large language models?
+LLM03: Training Data Poisoning,How does fine-tuning a model differ from the pre-training process?
+LLM03: Training Data Poisoning,"What is the embedding process in machine learning, and why is it important for training language models?"
+LLM03: Training Data Poisoning,"Why is data poisoning considered an integrity attack in the context of machine learning models?"
+LLM03: Training Data Poisoning,What makes external data sources more risky for model training compared to controlled datasets?
+LLM04: Model Denial of Service,What is the primary issue caused by an attacker interacting with an LLM in a resource-intensive manner?
+LLM04: Model Denial of Service,How can the decline in service quality affect users interacting with an LLM?
+LLM04: Model Denial of Service,What are the potential consequences of high resource consumption by an attacker on an LLM?
+LLM04: Model Denial of Service,Why is the manipulation of the context window in LLMs becoming a major security concern?
+LLM04: Model Denial of Service,What factors contribute to the increasing significance of context window manipulation in LLMs?
+LLM04: Model Denial of Service,How does user input unpredictability exacerbate vulnerabilities in LLMs?
+LLM04: Model Denial of Service,"What is the context window in the context of LLMs, and why is it important?"
+LLM04: Model Denial of Service,How does the size of the context window influence the complexity of language patterns an LLM can understand?
+LLM04: Model Denial of Service,In what ways can the architecture of an LLM affect its context window size?
+LLM04: Model Denial of Service,"Why might developers be unaware of vulnerabilities related to LLMs, particularly regarding the context window?"
+LLM05: Supply-Chain Vulnerabilities,What aspects of the supply chain in LLMs can be vulnerable to attacks?
+LLM05: Supply-Chain Vulnerabilities,How can vulnerabilities in the supply chain affect the integrity of training data?
+LLM05: Supply-Chain Vulnerabilities,What are some potential consequences of biased outcomes in LLMs?
+LLM05: Supply-Chain Vulnerabilities,In what ways can vulnerabilities in LLMs lead to security breaches?
+LLM05: Supply-Chain Vulnerabilities,How might a complete system failure occur as a result of vulnerabilities in the LLM supply chain?
+LLM05: Supply-Chain Vulnerabilities,Why have traditional approaches to vulnerabilities focused primarily on software components?
+LLM05: Supply-Chain Vulnerabilities,How do pre-trained models in machine learning introduce additional vulnerabilities?
+LLM05: Supply-Chain Vulnerabilities,What types of attacks are mentioned as threats to training data in LLMs?
+LLM05: Supply-Chain Vulnerabilities,How can third-party involvement in supplying training data increase the risk of tampering?
+LLM05: Supply-Chain Vulnerabilities,What measures can be taken to mitigate the vulnerabilities in the LLM supply chain?
+LLM06: Sensitive Information Disclosure,What types of sensitive information can LLM applications potentially reveal through their output?
+LLM06: Sensitive Information Disclosure,How can unauthorized access to sensitive data occur as a result of LLM outputs?
+LLM06: Sensitive Information Disclosure,What are some consequences of privacy violations related to LLM applications?
+LLM06: Sensitive Information Disclosure,Why is it important for consumers to be aware of the risks when interacting with LLMs?
+LLM06: Sensitive Information Disclosure,What measures can consumers take to avoid unintentionally inputting sensitive data into LLMs?
+LLM06: Sensitive Information Disclosure,How does data sanitization help mitigate risks associated with LLM applications?
+LLM06: Sensitive Information Disclosure,What role do Terms of Use policies play in informing consumers about data processing in LLM applications?
+LLM06: Sensitive Information Disclosure,How does the consumer-LLM interaction create a two-way trust boundary?
+LLM06: Sensitive Information Disclosure,What assumptions are made about prerequisites that are considered out of scope for the vulnerabilities discussed?
+LLM06: Sensitive Information Disclosure,"What challenges exist in implementing restrictions on the types of data LLMs should return, and how can these challenges be exploited?"
+LLM07: Insecure Plugin Design,"What are LLM plugins, and how do they function during user interactions?"
+LLM07: Insecure Plugin Design,Who drives the model integration platform that enables LLM plugins?
+LLM07: Insecure Plugin Design,What limitations might an application have regarding the execution of LLM plugins hosted by a third party?
+LLM07: Insecure Plugin Design,How do free-text inputs from the model impact the safety and validation of LLM plugins?
+LLM07: Insecure Plugin Design,What risks are associated with an attacker constructing a malicious request to an LLM plugin?
+LLM07: Insecure Plugin Design,How can malicious inputs lead to remote code execution in LLM applications?
+LLM07: Insecure Plugin Design,In what ways do insufficient access controls contribute to the vulnerabilities of LLM plugins?
+LLM07: Insecure Plugin Design,How can the failure to track authorization across plugins exacerbate security risks?
+LLM07: Insecure Plugin Design,What are some potential harmful consequences of inadequate access control in LLM plugins?
+LLM07: Insecure Plugin Design,"How can data exfiltration, remote code execution, and privilege escalation occur as a result of malicious inputs in LLM plugins?"
+LLM08: Excessive Agency,What degree of agency is often granted to an LLM-based system by its developer?
+LLM08: Excessive Agency,How can an LLM 'agent' determine which functions to invoke based on input?
+LLM08: Excessive Agency,What is the concept of Excessive Agency in the context of LLM systems?
+LLM08: Excessive Agency,What types of unexpected or ambiguous outputs can lead to vulnerabilities in LLMs?
+LLM08: Excessive Agency,What are some potential causes of Excessive Agency in LLM applications?
+LLM08: Excessive Agency,How does Excessive Agency differ from the concept of Insecure Output Handling?
+LLM08: Excessive Agency,"What broad impacts can Excessive Agency have on the confidentiality, integrity, and availability of systems?"
+LLM08: Excessive Agency,How does the ability of an LLM-based app to interact with other systems affect the risks associated with Excessive Agency?
+LLM08: Excessive Agency,In what ways can excessive functionality contribute to the vulnerability of an LLM-based system?
+LLM08: Excessive Agency,How might poorly-engineered prompts lead to Excessive Agency in LLM applications?
+LLM09: Overreliance,What is overreliance in the context of LLM-generated information?
+LLM09: Overreliance,How can LLMs produce erroneous information while still appearing authoritative?
+LLM09: Overreliance,What are some potential consequences of trusting factually incorrect content generated by LLMs?
+LLM09: Overreliance,What are hallucination and confabulation in relation to LLM outputs?
+LLM09: Overreliance,How can the lack of oversight in accepting LLM-generated information lead to security breaches?
+LLM09: Overreliance,In what ways can LLM-generated source code introduce security vulnerabilities?
+LLM09: Overreliance,What risks do unnoticed vulnerabilities in LLM-generated code pose to applications?
+LLM09: Overreliance,Why is it important to implement rigorous review processes for LLM-generated content?
+LLM09: Overreliance,What role do continuous validation mechanisms play in mitigating risks associated with LLMs?
+LLM09: Overreliance,How can disclaimers on risk help inform users about the limitations of LLM-generated information?
+LLM10: Model Theft,What does unauthorized access and exfiltration of LLM models refer to?
+LLM10: Model Theft,Why are proprietary LLM models considered valuable intellectual property?
+LLM10: Model Theft,What methods can malicious actors use to compromise LLM models?
+LLM10: Model Theft,What are some potential impacts of LLM model theft on organizations?
+LLM10: Model Theft,How can unauthorized usage of a stolen LLM model affect a company’s competitive advantage?
+LLM10: Model Theft,Why is the theft of LLMs considered a significant security concern in today's context?
+LLM10: Model Theft,What security measures should organizations prioritize to protect their LLM models?
+LLM10: Model Theft,How does ensuring the confidentiality and integrity of LLM intellectual property benefit organizations?
+LLM10: Model Theft,What components should a comprehensive security framework for LLMs include?
+LLM10: Model Theft,In what ways can continuous monitoring help mitigate the risks associated with LLM model theft?
