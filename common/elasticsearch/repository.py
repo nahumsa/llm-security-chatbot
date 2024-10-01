@@ -83,7 +83,13 @@ class ElasticRepository:
                     "must": {
                         "multi_match": {
                             "query": term,
-                            "fields": ["title^3", "description^1"],
+                            "fields": [
+                                "title^10",
+                                "description^3",
+                                "example_vulnerabilities^1",
+                                "mitigation^1",
+                                "example_attacks^1",
+                            ],
                             "type": "best_fields",
                         }
                     }
