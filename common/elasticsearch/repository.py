@@ -4,7 +4,7 @@ from elasticsearch import BadRequestError, Elasticsearch
 from elasticsearch.helpers import streaming_bulk
 from pydantic import BaseModel
 
-from ingestion.elasticsearch.data_model import (
+from common.elasticsearch.data_model import (
     ElasticDocument,
     IndexSettings,
     Mappings,
