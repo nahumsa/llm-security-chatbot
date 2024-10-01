@@ -12,9 +12,9 @@ from common.elasticsearch.data_model import (
 )
 
 ES_MAPPING = {
-    str: "keyword",
+    str: "text",
     int: "long",
-    Optional[str]: "keyword",
+    Optional[str]: "text",
 }
 
 logger = logging.getLogger(__name__)

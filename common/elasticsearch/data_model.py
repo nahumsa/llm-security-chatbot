@@ -1,8 +1,9 @@
 from typing import Annotated, Optional, Literal
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class ElasticDocument(BaseModel):
+    model_config = ConfigDict(populate_by_name=True)
     title: str
     description: Annotated[str, Field(alias="Description")]
     example_vulnerabilities: Annotated[
@@ -14,7 +15,7 @@ class ElasticDocument(BaseModel):
 
 
 class Property(BaseModel):
-    type: Literal["keyword", "date"]
+    type: Literal["text", "date"]
 
 
 class Mappings(BaseModel):
