@@ -2,7 +2,7 @@ import logging
 from typing import Optional, get_type_hints
 from elasticsearch import BadRequestError, Elasticsearch
 from elasticsearch.helpers import streaming_bulk
-from pydantic import BaseModel
+from pydantic import BaseModel, TypeAdapter
 
 from common.elasticsearch.data_model import (
     ElasticDocument,
@@ -73,3 +73,29 @@ class ElasticRepository:
             successes += ok
 
         logger.info(f"Indexed {successes}/{len(documents)} documents")
+
+    def retrieval(self, term: str, num_results: int = 3) -> list[ElasticDocument]:
+        retrieval_docs: list[ElasticDocument] = []
+
+        query = {
+            "query": {
+                "bool": {
+                    "must": {
+                        "multi_match": {
+                            "query": term,
+                            "fields": ["title^3", "description^1"],
+                            "type": "best_fields",
+                        }
+                    }
+                }
+            }
+        }
+
+        response = self._client.search(
+            index=self._index_name, body=query, size=num_results
+        )
+
+        for hit in response["hits"]["hits"]:
+            retrieval_docs.append(ElasticDocument(**hit["_source"]))
+
+        return retrieval_docs
