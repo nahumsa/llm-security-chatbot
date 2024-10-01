@@ -9,6 +9,7 @@ markdown = "*"
 pydantic = "*"
 elasticsearch = "*"
 mypy = "*"
+pydantic-settings = "*"
 
 [dev-packages]
 
