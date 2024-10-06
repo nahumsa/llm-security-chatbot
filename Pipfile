@@ -10,6 +10,10 @@ pydantic = "*"
 elasticsearch = "*"
 mypy = "*"
 pydantic-settings = "*"
+google-generativeai = "*"
+python-frontmatter = "*"
+jinja2 = "*"
+fastapi = "*"
 
 [dev-packages]
 
