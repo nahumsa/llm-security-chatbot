@@ -17,4 +17,5 @@ class GeminiGenerationConfig(BaseModel):
 
 class GeminiSettings(BaseSettings):
     google_api_key: str
+    gemini_model_name: str = "gemini-1.5-flash-8b"
     generation_config: GeminiGenerationConfig = GeminiGenerationConfig()

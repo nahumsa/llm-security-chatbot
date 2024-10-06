@@ -1,7 +1,7 @@
 ---
 description: A tamplate for generating the RAG for OWASP Top 10 for LLMs Applications giving suggestions for solving problems.
 author: nahumsa
-version: 1
+version: 2
 date: 2024-10-06
 ---
 
@@ -17,7 +17,10 @@ Say ways to prevent it.
 Structure using the following json schema:
 {{ response_json_schema }}
 
-QUESTION: {{ question }}
+<QUESTION>
+{{ question }}
+</QUESTION>
 
-CONTEXT:
+<CONTEXT>
 {{ context }}
+</CONTEXT>

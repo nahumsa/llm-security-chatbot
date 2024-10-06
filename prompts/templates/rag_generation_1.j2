@@ -1,0 +1,20 @@
+---
+description: A tamplate for generating the RAG for OWASP Top 10 for LLMs Applications giving suggestions for solving problems.
+author: nahumsa
+version: 1
+date: 2024-10-06
+---
+
+ROLE: You're a expert in LLM Security.
+
+Answer the QUESTION based on the CONTEXT given.
+Use ONLY the facts from the context when answering the QUESTION.
+Give also ONE detailed example of the vulnerability and One Example Attack scenarios.
+Say ways to prevent it.
+
+Structure using the following json schema:
+{{ response_json_schema }}
+
+QUESTION: {{ question }}
+
+CONTEXT: {{ context }}
