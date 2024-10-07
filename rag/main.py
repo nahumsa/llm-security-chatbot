@@ -1,11 +1,10 @@
-from abc import abstractmethod
+import google.generativeai as genai
+from common.elasticsearch.repository import ElasticRepository
 from elasticsearch import Elasticsearch
 from pydantic import BaseModel
 from common.config import ElasticsearchSettings, GeminiSettings
-import google.generativeai as genai
-
-from common.elasticsearch.repository import ElasticRepository
-from prompts import PromptManager
+from rag.repositories.rag import RAGRepository
+from rag.repositories.generative import GeminiGenenerativeRepository
 
 
 class ResponseModel(BaseModel):
@@ -13,66 +12,6 @@ class ResponseModel(BaseModel):
     example_vulnerability: str
     example_attack: str
     prevention: str
-
-
-class GenerativeRepository:
-    @abstractmethod
-    def generate_response(
-        self, prompt: str, response_model: type[BaseModel]
-    ) -> BaseModel:
-        pass
-
-
-class GeminiGenenerativeRepository(GenerativeRepository):
-    def __init__(self, settings: GeminiSettings) -> None:
-        self.model = genai.GenerativeModel(
-            model_name=settings.gemini_model_name,
-            generation_config=settings.generation_config.model_dump(),  # type: ignore
-        )
-
-    def generate_response(
-        self, prompt: str, response_model: type[BaseModel]
-    ) -> BaseModel:
-        chat_session = self.model.start_chat()
-        response = chat_session.send_message(prompt)
-        return response_model.model_validate_json(response.text)
-
-
-class RAGRepository:
-    def __init__(
-        self,
-        retrieval_repository: ElasticRepository,
-        generative_repository: GenerativeRepository,
-        prompt_name: str,
-        response_model: type[BaseModel],
-    ) -> None:
-        self.retrieval_repository = retrieval_repository
-        self.prompt_name = prompt_name
-        self.response_model = response_model
-        self.generative_repository = generative_repository
-
-    def __generate_context(self, question: str) -> list[str]:
-        return [
-            entry.model_dump_json()
-            for entry in elastic_repository.retrieval(term=question, num_results=1)
-        ]
-
-    def __generate_model_response(self, prompt: str) -> BaseModel:
-        return self.generative_repository.generate_response(
-            prompt, response_model=self.response_model
-        )
-
-    def run(self, question: str) -> BaseModel:
-        context = self.__generate_context(question)
-
-        prompt = PromptManager.get_prompt(
-            self.prompt_name,
-            question=question,
-            context=context,
-            response_json_schema=ResponseModel.model_json_schema(),
-        )
-
-        return self.__generate_model_response(prompt)
 
 
 if __name__ == "__main__":
