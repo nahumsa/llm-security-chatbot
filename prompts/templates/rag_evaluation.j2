@@ -18,7 +18,7 @@ Generated Answer: {{ answer_llm }}
 Analyze the content and context of the generated answer in relation to the question
 and provide your evaluation in parsable JSON without using code blocks:
 
-{{
-  "Relevance": "NON_RELEVANT" | "PARTLY_RELEVANT" | "RELEVANT",
-  "Explanation": "[Provide a brief explanation for your evaluation]"
-}}
+{
+  "relevance": "NON_RELEVANT" | "PARTLY_RELEVANT" | "RELEVANT",
+  "explanation": "[Provide a brief explanation for your evaluation]"
+}
