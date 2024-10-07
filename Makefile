@@ -5,4 +5,7 @@ ingest_data:
 	python -m ingestion.main
 
 fmt:
-	pipenv run black . && pipenv run isort . --profile black
+	pipenv run black . && pipenv run isort .
+
+setup:
+	pip install pipenv && pipenv install --dev

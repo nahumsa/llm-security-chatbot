@@ -22,9 +22,47 @@ To run this project, you'll need:
 
 - Python 3.10
 - Elasticsearch
+- Docker
 
 ## Environment Variables
 
 | Variable Name  | Description                                                  | Example Value               |
 |----------------|--------------------------------------------------------------|-----------------------------|
 | `GOOGLE_API_KEY` | API key Google Gemini                                          | `asinodnoiansd12po3i2` |
+
+## Running the Application
+
+To run the application, follow these steps:
+
+1. **Clone the repository**:
+
+    ```bash
+    git clone https://github.com/nahumsa/llm-security-chatbot.git
+    ```
+
+2. **Set up environment variables**:
+    You can set the environment variables directly in your shell or create a `.env` file in the root directory of your project:
+
+    ```bash
+    export google_api_key="api_key"
+    ```
+
+    Or create a `.env` file:
+
+    ```dotenv
+    google_api_key="api_key"
+    ```
+
+    and run:
+
+    ```bash
+    export $(cat .env | xargs)
+    ```
+
+3. **Run the application**:
+
+    ```bash
+    docker compose up
+    ```
+
+Now, your application should be running and you can see the swagger at: [http://localhost:8080/docs](http://localhost:8080/docs#/default/rag_query_rag_post).

@@ -1,4 +1,5 @@
 version: "3"
+
 services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.5.0
@@ -10,4 +11,59 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
+    healthcheck:
+      test: curl -s http://localhost:9200 >/dev/null || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 50
     restart: always
+    networks:
+      - docker_network
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: rag
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - docker_network
+
+  ingest_data:
+    build:
+      context: .
+      dockerfile: Dockerfile.ingestion
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      google_api_key: ${google_api_key}
+      hosts: '["http://elasticsearch:9200"]'
+    networks:
+      - docker_network
+
+  api:
+    build: .
+    depends_on:
+      ingest_data:
+        condition: service_completed_successfully
+    ports:
+      - "8080:8080"
+    environment:
+      google_api_key: ${google_api_key}
+      hosts: '["http://elasticsearch:9200"]'
+    networks:
+      - docker_network
+
+volumes:
+  postgres_data:
+
+networks:
+  docker_network:
+    driver: bridge
