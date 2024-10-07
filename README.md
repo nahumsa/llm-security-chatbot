@@ -66,3 +66,17 @@ To run the application, follow these steps:
     ```
 
 Now, your application should be running and you can see the swagger at: [http://localhost:8080/docs](http://localhost:8080/docs#/default/rag_query_rag_post).
+
+4. If you want to run the evals you can run them using using Make:
+
+- 4.1 Evaluating Retrieval
+
+    ```bash
+    make evaluate_retrieval
+    ```
+
+- 4.2 Evaluating RAG
+
+    ```bash
+    make evaluate_rag
+    ```
