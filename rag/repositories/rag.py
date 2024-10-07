@@ -1,7 +1,7 @@
-from common.elasticsearch.repository import ElasticRepository
-from prompts import PromptManager
 from pydantic import BaseModel
 
+from common.elasticsearch.repository import ElasticRepository
+from prompts import PromptManager
 from rag.repositories.generative import GenerativeRepository
 
 

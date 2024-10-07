@@ -1,4 +1,5 @@
 from abc import abstractmethod
+
 import google.generativeai as genai
 from pydantic import BaseModel
 

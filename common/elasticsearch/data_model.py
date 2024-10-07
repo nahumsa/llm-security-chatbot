@@ -1,4 +1,5 @@
-from typing import Annotated, Optional, Literal
+from typing import Annotated, Literal, Optional
+
 from pydantic import BaseModel, ConfigDict, Field
 
 

@@ -1,8 +1,9 @@
-from elasticsearch import Elasticsearch
-from common.config import ElasticsearchSettings
-from common.elasticsearch.repository import ElasticRepository
 import csv
 
+from elasticsearch import Elasticsearch
+
+from common.config import ElasticsearchSettings
+from common.elasticsearch.repository import ElasticRepository
 from retrieval.metrics import hit_rate, mrr
 
 

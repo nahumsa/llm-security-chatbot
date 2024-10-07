@@ -1,9 +1,9 @@
 from elasticsearch import Elasticsearch
+
 from common.config import ElasticsearchSettings
 from common.elasticsearch.data_model import ElasticDocument
 from common.elasticsearch.repository import ElasticRepository
 from ingestion.files import FilesExtractor
-
 
 if __name__ == "__main__":
     documents_to_ingest: list[ElasticDocument] = []

@@ -1,10 +1,11 @@
 import google.generativeai as genai
-from common.elasticsearch.repository import ElasticRepository
 from elasticsearch import Elasticsearch
 from pydantic import BaseModel
+
 from common.config import ElasticsearchSettings, GeminiSettings
-from rag.repositories.rag import RAGRepository
+from common.elasticsearch.repository import ElasticRepository
 from rag.repositories.generative import GeminiGenenerativeRepository
+from rag.repositories.rag import RAGRepository
 
 
 class ResponseModel(BaseModel):

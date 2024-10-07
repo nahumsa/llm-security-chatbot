@@ -1,7 +1,8 @@
 from typing import Optional
+
 import requests
 
-from ingestion.parser import FileParser, Parser, File
+from ingestion.parser import File, FileParser, Parser
 
 root_path = (
     "https://raw.githubusercontent.com"

@@ -1,7 +1,8 @@
 from typing import Any
-from pydantic import BaseModel
+
 import frontmatter
 from jinja2 import Environment, FileSystemLoader, TemplateError, meta
+from pydantic import BaseModel
 
 
 class TemplateInfo(BaseModel):

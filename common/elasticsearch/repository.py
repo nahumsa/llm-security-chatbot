@@ -1,5 +1,6 @@
 import logging
 from typing import Optional, get_type_hints
+
 from elasticsearch import BadRequestError, Elasticsearch
 from elasticsearch.helpers import streaming_bulk
 from pydantic import BaseModel, TypeAdapter
