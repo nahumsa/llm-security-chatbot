@@ -42,7 +42,7 @@ services:
   ingest_data:
     build:
       context: .
-      dockerfile: Dockerfile.ingestion
+      dockerfile: ingestion/Dockerfile
     depends_on:
       elasticsearch:
         condition: service_healthy
@@ -56,7 +56,7 @@ services:
   start_sql_db:
     build:
       context: .
-      dockerfile: Dockerfile.sql
+      dockerfile: database/Dockerfile
     depends_on:
       postgres:
         condition: service_healthy
