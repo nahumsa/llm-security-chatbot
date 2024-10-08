@@ -26,6 +26,12 @@ services:
       POSTGRES_USER: username
       POSTGRES_PASSWORD: password
       POSTGRES_DB: rag
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "rag"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
     ports:
       - 5432:5432
     volumes:
@@ -43,8 +49,22 @@ services:
     ports:
       - "8080:8080"
     environment:
-      google_api_key: ${google_api_key}
       hosts: '["http://elasticsearch:9200"]'
+    networks:
+      - docker_network
+
+  start_sql_db:
+    build:
+      context: .
+      dockerfile: Dockerfile.sql
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      hosts: '["http://elasticsearch:9200"]'
+      pg_conn_string: "postgresql://username:password@postgres:5432/rag"
     networks:
       - docker_network
 
@@ -53,11 +73,16 @@ services:
     depends_on:
       ingest_data:
         condition: service_completed_successfully
+      start_sql_db:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
     ports:
       - "8080:8080"
     environment:
       google_api_key: ${google_api_key}
       hosts: '["http://elasticsearch:9200"]'
+      pg_conn_string: "postgresql://username:password@postgres:5432/rag"
     networks:
       - docker_network
 

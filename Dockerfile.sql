@@ -8,12 +8,8 @@ RUN pip install pipenv
 RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --system --deploy --ignore-pipfile
 
 COPY common/ /app/common/
-COPY prompts/ /app/prompts/
-COPY rag/ /app/rag/
+COPY ingestion/ /app/ingestion/
 COPY retrieval/ /app/retrieval/
-COPY api/ /app/api/
 COPY database/ /app/database/
 
-EXPOSE 8080
-
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["python", "-m", "database.postgres"]

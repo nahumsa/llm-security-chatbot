@@ -7,6 +7,10 @@ class ElasticsearchSettings(BaseSettings):
     index_name: str = "security_llm"
 
 
+class PostgresSettings(BaseSettings):
+    pg_conn_string: str
+
+
 class GeminiGenerationConfig(BaseModel):
     temperature: float = 1
     top_p: float = 0.95

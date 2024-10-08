@@ -23,8 +23,11 @@ To run this project, you'll need:
 - Python 3.10
 - Elasticsearch
 - Docker
+- Make
 
 ## Environment Variables
+
+In order to get your GOOGLE_API_KEY you can access [aistudio](https://aistudio.google.com/):
 
 | Variable Name  | Description                                                  | Example Value               |
 |----------------|--------------------------------------------------------------|-----------------------------|
